@@ -6,22 +6,36 @@ using namespace std;
 const int MAX_PHAGE = 40; // number of phages per search
 const int MAX_TAB   = 5; // tabs opened threshold before warning is triggered
 
-int automateGCS();
+int automateGCS(int max_phage);
 
 int main()
 {
-    // Return 0: Success
-    // Return 1: Test Run
+    // Return 0: Success: normal termination
+    // Return 1: Success: early termination
     // Return -1: Error
 
-    cout << "Welcome to Semi-Auto GCS Analysis Tool (v1.0)!\n\n"
-        "Start the program by pressing ENTER or RETURN." << endl;
-    cin.ignore();
+    string custom;
 
-    return automateGCS();
+    cout << "Welcome to Semi-Auto GCS Analysis Tool (v1.0)!\n\n"
+        "Instructions and troubleshooting options are in the 'README.txt' file.\n"
+        "Start the program by pressing ENTER or RETURN." << endl;
+
+    while (true)
+    {
+        getline(cin, custom);
+
+        if (custom == "1")
+            return automateGCS(10);
+        else if (custom == "2")
+            return automateGCS(20);
+        else if (custom == "3")
+            return automateGCS(30);
+        else
+            return automateGCS(MAX_PHAGE);
+    }
 }
 
-int automateGCS()
+int automateGCS(int max_phage)
 {
     string phage_name;
     string response;
@@ -94,7 +108,7 @@ int automateGCS()
 
         while (getline(oth, line))
         {
-            if (count_other == MAX_PHAGE)
+            if (count_other == max_phage)
             {
                 string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
                 system(std::string("start " + url_master).c_str());
@@ -110,10 +124,7 @@ int automateGCS()
                         cout << MAX_TAB << " tabs have opened, but more phages still need processing. Still continue? (y/n)" << endl;
                         cin >> response;
                         if (response == "Y" || response == "N" || response == "y" || response == "n")
-                        {
-                            cout << "Processing . . ." << endl;
                             break;
-                        }
                         cout << "Invalid input. Valid inputs are either the single letter 'y' (yes) or 'n' (no)." << endl;
                     }
                     if (response == "N" || response == "n")
@@ -125,6 +136,7 @@ int automateGCS()
                         cin.ignore();
                         exit(1);
                     }
+                    cout << "Processing . . ." << endl;
                     count_tab = 0;
                 }
             }
@@ -155,10 +167,7 @@ int automateGCS()
             cout << "Proceed to the next phage in " << phage_list << " to compare to? (y/n)" << endl;
             cin >> response;
             if (response == "Y" || response == "N" || response == "y" || response == "n")
-            {
-                cout << "Processing . . ." << endl;
                 break;
-            }
             cout << "Invalid input. Valid inputs are either the single letter 'y' (yes) or 'n' (no)." << endl;
         }
         if (response == "N" || response == "n")
@@ -171,6 +180,7 @@ int automateGCS()
             exit(1);
         }
 
+        cout << "Processing . . ." << endl;
         oth.clear();
         oth.seekg(0, ios::beg);
         url_phages.clear();
