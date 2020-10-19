@@ -4,7 +4,7 @@
 using namespace std;
 
 const int MAX_PHAGE = 40; // number of phages per search
-const int MAX_TAB = 5; // tabs opened threshold before warning is triggered
+const int MAX_TAB   = 5; // tabs opened threshold before warning is triggered
 
 int automateGCS();
 
@@ -74,14 +74,14 @@ int automateGCS()
     oth.seekg(0, ios::beg);
 
     string url_phages;
-    int count_phage_master = 0, // total number of phages in phage_list.txt
-        count_other_master = 0, // grand total number of comparisons made across all rounds
-        count_other_total = 0, // total number of phages in other_list.txt successfully compared in one round
+    int count_phage_master       = 0, // total number of phages in phage_list.txt
+        count_other_master       = 0, // grand total number of comparisons made across all rounds
+        count_other_total        = 0, // total number of phages in other_list.txt successfully compared in one round
         count_other_total_report = 0, // total number of phages in other_list.txt
-        count_other = 0, // tracks phages compared in one tab before overflowing to a new tab
-        count_tab = 0, // tracks tabs opened for the first round before triggering tab warning
-        count_tab_master = 0, // grand total number of tabs opened across all rounds
-        count_tab_total = 0; // total number of tabs opened in one round
+        count_other              = 0, // tracks phages compared in one tab before overflowing to a new tab
+        count_tab                = 0, // tracks tabs opened for the first round before triggering tab warning
+        count_tab_master         = 0, // grand total number of tabs opened across all rounds
+        count_tab_total          = 0; // total number of tabs opened in one round
 
     while (getline(pha, line))
     {
