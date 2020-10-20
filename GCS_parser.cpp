@@ -5,6 +5,8 @@ using namespace std;
 
 const int MAX_PHAGE = 40; // number of phages per search
 const int MAX_TAB   = 5; // tabs opened threshold before warning is triggered
+const string PHAGE_LIST = "phage_list.txt";
+const string OTHER_LIST = "other_list.txt";
 
 int automateGCS(int max_phage);
 
@@ -39,19 +41,17 @@ int automateGCS(int max_phage)
 {
     string phage_name;
     string response;
-    string phage_list = "phage_list.txt";
-    string other_list = "other_list.txt";
 
     cout << "Processing . . ." << endl;
 
-    ifstream pha(phage_list);
+    ifstream pha(PHAGE_LIST);
     if (!pha)
     {
         cerr << "Data failed to load!" << endl;
         return -1;
     }
 
-    ifstream oth(other_list);
+    ifstream oth(OTHER_LIST);
     if (!oth)
     {
         cerr << "Data failed to load!" << endl;
@@ -160,40 +160,40 @@ int automateGCS(int max_phage)
             "The total number of tabs opened from comparing to '" << phage_name << "' was " << count_tab_total << "." << endl;
         count_other_total_report = count_other_total; // to prevent resetting count during report
 
-        while (true)
+        if (count_phage_master != num_phages)
         {
-            if (count_phage_master == num_phages)
-                break;
-            cout << "Proceed to the next phage in " << phage_list << " to compare to? (y/n)" << endl;
-            cin >> response;
-            if (response == "Y" || response == "N" || response == "y" || response == "n")
-                break;
-            cout << "Invalid input. Valid inputs are either the single letter 'y' (yes) or 'n' (no)." << endl;
+            while (true)
+            {
+                cout << "Proceed to the next phage in " << PHAGE_LIST << " to compare to? (y/n)" << endl;
+                cin >> response;
+                if (response == "Y" || response == "N" || response == "y" || response == "n")
+                    break;
+                cout << "Invalid input. Valid inputs are either the single letter 'y' (yes) or 'n' (no)." << endl;
+            }
+            if (response == "N" || response == "n")
+            {
+                cout << "User has terminated processing early.\n"
+                    "The total number of phages in " << PHAGE_LIST << " successfully compared to was " << count_phage_master << ".\n"
+                    "You may close the program or press ENTER or RETURN to exit." << endl;
+                cin.get();
+                cin.ignore();
+                exit(1);
+            }
+            cout << "Processing . . ." << endl;
+            oth.clear();
+            oth.seekg(0, ios::beg);
+            url_phages.clear();
+            count_other = 0;
+            count_other_total = 0;
+            count_tab_total = 0;
+            count_tab = -9999; // only count tabs during first loop
         }
-        if (response == "N" || response == "n")
-        {
-            cout << "User has terminated processing early.\n"
-                "The total number of phages in " << phage_list << " successfully compared to was " << count_phage_master << ".\n"
-                "You may close the program or press ENTER or RETURN to exit." << endl;
-            cin.get();
-            cin.ignore();
-            exit(1);
-        }
-
-        cout << "Processing . . ." << endl;
-        oth.clear();
-        oth.seekg(0, ios::beg);
-        url_phages.clear();
-        count_other = 0;
-        count_other_total = 0;
-        count_tab_total = 0;
-        count_tab = -9999; // only count tabs during first loop
     }
 
     cout << "\n=========================================================================="
         "\nProgram was successful!\n\n"
-        "The total number of comparisons made from the " << count_other_total_report << " phage(s) in " << other_list << "\nto the "
-        << count_phage_master << " phage(s) in " << phage_list << " was " << count_other_master << ".\n\n"
+        "The total number of comparisons made from the " << count_other_total_report << " phage(s) in " << OTHER_LIST << "\nto the "
+        << count_phage_master << " phage(s) in " << PHAGE_LIST << " was " << count_other_master << ".\n\n"
         "The total number of tabs opened was " << count_tab_master << ".\n\n"
         "You may close the program or press ENTER or RETURN to exit." << endl;
     cin.get();
