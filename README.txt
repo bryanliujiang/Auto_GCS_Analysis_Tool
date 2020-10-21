@@ -1,4 +1,15 @@
-/*======================================================== WELCOME ==========================================================
+TABLE OF CONTENTS:
+- Welcome
+- Caution
+- Instructions
+- Troubleshooting/FAQs
+- Custom Settings
+- Resources
+
+
+
+
+========================================================== WELCOME ==========================================================
 This tool was designed to supplement the GCS analysis process. It will help alleviate the manual work required to conduct 
 mass comparisons. However, at this time, the user will still have to manually extract the GCS output numbers on PhagesDB 
 themselves.
@@ -14,7 +25,7 @@ warnings will be given. It is the user's reponsibility to check memory usage to 
 The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt' and 'others_list.txt'). The 
 user should paste the shorter list of phages in 'phage_list.txt' and the longer list of phages in 'others_list.txt'. The 
 reason for this is that the program requires user input each time a new phage in 'phage_list.txt' is compared to all the
-phages in 'others_list.txt' (this can be overridden if the user inputs the keyword "auto" when the program opens). 
+phages in 'others_list.txt' (this can be overridden if the user inputs the keyword "auto" when the program opens).
 Additionally, a new tab in the browser will be opened for each phage in 'phage_list.txt'.
 
 MAC USERS ONLY: The folder containing the program must be stored on the desktop to run correctly.
@@ -78,49 +89,6 @@ The following are valid custom commands that the user can enter upon the program
 PhagesDB GCS Tool: https://phagesdb.org/genecontent/
 Contact Me: bryanjiang@ucla.edu
 Source code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
-===========================================================================================================================*/
+=============================================================================================================================
 
-#include <iostream>
-#include <string>
 
-#include "GCS_parser.h"
-using namespace std;
-
-int main()
-{
-    // Return 0: Success: normal termination
-    // Return 1: Success: early termination
-    // Return -1: Error
-
-    string custom;
-
-    cout << "Welcome to Semi-Auto GCS Analysis Tool (v1.0)!\n\n"
-        "Instructions and troubleshooting options are in the 'README.txt' file.\n"
-        "Start the program by pressing ENTER or RETURN." << endl;
-
-    while (true)
-    {
-        getline(cin, custom);
-
-        if (custom == "1")
-            return automateGCS(10);
-        else if (custom == "2")
-            return automateGCS(20);
-        else if (custom == "3")
-            return automateGCS(30);
-        else if (custom == "5")
-            return automateGCS(50);
-        else if (custom == "6")
-            return automateGCS(60);
-        else if (custom == "7")
-            return automateGCS(70);
-        else if (custom == "8")
-            return automateGCS(80);
-        else if (custom == "9")
-            return automateGCS(90);
-        else if (custom == "auto")
-            return automateGCS(MAX_PHAGE, true);
-        else
-            return automateGCS(MAX_PHAGE);
-    }
-}
