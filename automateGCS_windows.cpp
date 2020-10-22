@@ -1,15 +1,12 @@
+#include "defaults.h"
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
-
-#include "GCS_parser.h"
 using namespace std;
 
 int automateGCS(int max_phage, bool full_auto)
 {
-    string phage_name;
-    string response = "y";
-
     cout << "Processing . . ." << endl;
 
     ifstream pha(PHAGE_LIST);
@@ -55,15 +52,16 @@ int automateGCS(int max_phage, bool full_auto)
     oth.clear();
     oth.seekg(0, ios::beg);
 
-    string url_phages;
     int count_phage_master = 0, // total number of phages in phage_list.txt
         count_other_master = 0, // grand total number of comparisons made across all rounds
         count_other_total = 0, // total number of phages in other_list.txt successfully compared in one round
         count_other_total_report = 0, // total number of phages in other_list.txt
         count_other = 0, // tracks phages compared in one tab before overflowing to a new tab
-        count_tab = 0, // tracks tabs opened for the first round before triggering tab warning
         count_tab_master = 0, // grand total number of tabs opened across all rounds
         count_tab_total = 0; // total number of tabs opened in one round
+    string phage_name;
+    string response = "y";
+    string url_phages;
 
     while (getline(pha, line))
     {
@@ -85,7 +83,7 @@ int automateGCS(int max_phage, bool full_auto)
                 ++count_tab;
                 url_phages.clear();
                 count_other = 0;
-                if (count_tab == MAX_TAB)
+                if (count_tab_master == MAX_TAB)
                 {
                     while (!full_auto)
                     {
@@ -102,10 +100,9 @@ int automateGCS(int max_phage, bool full_auto)
                             "You may close the program or press ENTER or RETURN to exit." << endl;
                         cin.get();
                         cin.ignore();
-                        exit(1);
+                        return 1;
                     }
                     cout << "Processing . . ." << endl;
-                    count_tab = 0;
                 }
             }
 
@@ -114,6 +111,7 @@ int automateGCS(int max_phage, bool full_auto)
             iss_oth >> other;
 
             url_phages = url_phages + ",%20" + other;
+
             ++count_other;
             ++count_other_total;
             ++count_other_master;
@@ -121,12 +119,13 @@ int automateGCS(int max_phage, bool full_auto)
 
         string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
         system(std::string("start " + url_master).c_str());
+
         ++count_tab_master;
         ++count_tab_total;
+        count_other_total_report = count_other_total; // to prevent resetting count during output report
 
         cout << "The total number of phages successfully compared to '" << phage_name << "' was " << count_other_total << ".\n"
             "The total number of tabs opened from comparing to '" << phage_name << "' was " << count_tab_total << "." << endl;
-        count_other_total_report = count_other_total; // to prevent resetting count during report
 
         if (count_phage_master != num_phages)
         {
@@ -145,7 +144,7 @@ int automateGCS(int max_phage, bool full_auto)
                     "You may close the program or press ENTER or RETURN to exit." << endl;
                 cin.get();
                 cin.ignore();
-                exit(1);
+                return 1;
             }
             cout << "Processing . . ." << endl;
             oth.clear();
@@ -154,7 +153,6 @@ int automateGCS(int max_phage, bool full_auto)
             count_other = 0;
             count_other_total = 0;
             count_tab_total = 0;
-            count_tab = -9999; // only count tabs during first loop
         }
     }
 

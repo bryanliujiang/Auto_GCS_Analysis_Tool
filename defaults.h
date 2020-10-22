@@ -2,7 +2,7 @@
 #define GCS_PARSER_H_
 
 /*==============================================================
-GCS_parser.cpp : contains main function, handles custom commands
+main.cpp : contains main function, handles custom commands
 automateGCS_windows.cpp : contains parsing function
 ==============================================================*/
 
