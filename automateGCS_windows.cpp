@@ -7,7 +7,7 @@ using namespace std;
 
 int automateGCS(int max_phage, bool full_auto)
 {
-    cout << "Processing . . ." << endl;
+    cout << "\nProcessing . . .\n" << endl;
 
     ifstream pha(PHAGE_LIST);
     if (!pha)
@@ -80,7 +80,6 @@ int automateGCS(int max_phage, bool full_auto)
                 system(std::string("start " + url_master).c_str());
                 ++count_tab_master;
                 ++count_tab_total;
-                ++count_tab;
                 url_phages.clear();
                 count_other = 0;
                 if (count_tab_master == MAX_TAB)
@@ -95,14 +94,14 @@ int automateGCS(int max_phage, bool full_auto)
                     }
                     if (response == "N" || response == "n")
                     {
-                        cout << "User has terminated processing early.\n"
+                        cout << "\nUser has terminated processing early.\n"
                             "The total number of phages successfully compared to '" << phage_name << "' was " << count_other_total << ".\n"
-                            "You may close the program or press ENTER or RETURN to exit." << endl;
+                            "\nYou may close the program or press ENTER or RETURN to exit." << endl;
                         cin.get();
                         cin.ignore();
                         return 1;
                     }
-                    cout << "Processing . . ." << endl;
+                    cout << "\nProcessing . . .\n" << endl;
                 }
             }
 
@@ -131,7 +130,7 @@ int automateGCS(int max_phage, bool full_auto)
         {
             while (!full_auto)
             {
-                cout << "Proceed to the next phage in " << PHAGE_LIST << " to compare to? (y/n)" << endl;
+                cout << "\nProceed to the next phage in " << PHAGE_LIST << " to compare to? (y/n)" << endl;
                 cin >> response;
                 if (response == "Y" || response == "N" || response == "y" || response == "n")
                     break;
@@ -139,14 +138,14 @@ int automateGCS(int max_phage, bool full_auto)
             }
             if (response == "N" || response == "n")
             {
-                cout << "User has terminated processing early.\n"
+                cout << "\nUser has terminated processing early.\n"
                     "The total number of phages in " << PHAGE_LIST << " successfully compared to was " << count_phage_master << ".\n"
-                    "You may close the program or press ENTER or RETURN to exit." << endl;
+                    "\nYou may close the program or press ENTER or RETURN to exit." << endl;
                 cin.get();
                 cin.ignore();
                 return 1;
             }
-            cout << "Processing . . ." << endl;
+            cout << "\nProcessing . . .\n" << endl;
             oth.clear();
             oth.seekg(0, ios::beg);
             url_phages.clear();

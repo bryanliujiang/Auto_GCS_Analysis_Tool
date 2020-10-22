@@ -83,7 +83,6 @@ Source code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Au
 #include "defaults.h"
 
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main()
@@ -110,7 +109,15 @@ int main()
             return automateGCS(30);
         else if (custom == "5")
             return automateGCS(50);
+        else if (custom == "6")
+            return automateGCS(60);
+        else if (custom == "7")
+            return automateGCS(70);
+        else if (custom == "8")
+            return automateGCS(80);
         else if (custom == "9")
+            return automateGCS(90);
+        else if (custom == "max")
             return automateGCS(INT_MAX);
         else if (custom == "auto")
             return automateGCS(MAX_PHAGE, true);

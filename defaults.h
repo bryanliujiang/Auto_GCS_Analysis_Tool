@@ -1,10 +1,12 @@
-#ifndef GCS_PARSER_H_
-#define GCS_PARSER_H_
-
 /*==============================================================
 main.cpp : contains main function, handles custom commands
 automateGCS_windows.cpp : contains parsing function
 ==============================================================*/
+
+#ifndef GCS_PARSER_H_
+#define GCS_PARSER_H_
+
+#include <string>
 
 const int MAX_PHAGE = 40; // number of phages per search
 const int MAX_TAB = 5; // tabs opened threshold before warning is triggered
