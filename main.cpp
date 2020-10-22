@@ -72,6 +72,9 @@ The following are valid custom commands that the user can enter upon the program
 "3" : This will set the number of phage comparisons per tab to 30 (default is 40).
 
 "5" : This will set the number of phage comparisons per tab to 50, exceeding the default (default is 40).
+
+"max" : *EXPERIMENTAL* This will remove any limit to the number of phage comparisons per tab. A new tab will still be opened 
+        for each phage in 'phage_list.txt', however.
 =============================================================================================================================
 
 ========================================================= RESOURCES =========================================================
