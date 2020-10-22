@@ -73,8 +73,8 @@ The following are valid custom commands that the user can enter upon the program
 
 [Pressing ENTER or RETURN key] : This runs the tool with default settings.
 
-"auto" : This will bypass the manual input steps required everytime a new phage in 'phage_list.txt' is compared to. This will
-         also bypass the warning given when more than five tabs will be opened.
+"auto" : This will bypass the manual confirmation required everytime a new phage in 'phage_list.txt' is compared to. This 
+         will also bypass the warning given when more than five tabs will be opened.
 
 "1" : This will set the number of phage comparisons per tab to 10 (default is 40).
 
@@ -86,6 +86,10 @@ The following are valid custom commands that the user can enter upon the program
 
 "max" : *EXPERIMENTAL* This will remove any limit to the number of phage comparisons per tab. A new tab will still be opened 
         for each phage in 'phage_list.txt', however.
+
+"auto max" or "max auto" : *EXPERIMENTAL* This combines the 'auto' and 'max' commands, essentially removing phage comparison 
+                           and tab limits as well as bypassing the need for manual confirmation everytime a new phage in 
+                           'phage_list.txt' is compared to
 =============================================================================================================================
 
 ========================================================= RESOURCES =========================================================
