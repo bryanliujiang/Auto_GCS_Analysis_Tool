@@ -9,6 +9,8 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
 {
     if (setup)
     {
+        ofstream myfile;
+
         cout << "\nSetting up . . .\n" << endl;
 
         myfile.open("phage_list.txt");
