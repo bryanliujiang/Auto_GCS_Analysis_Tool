@@ -1,10 +1,10 @@
 /*==============================================================
-main.cpp : contains main function, handles custom commands
-automateGCS_windows.cpp : contains parsing function
+main_macos.cpp : contains main function, handles custom commands
+automate_gcs_macos.cpp : contains parsing function
 ==============================================================*/
 
-#ifndef GCS_PARSER_H_
-#define GCS_PARSER_H_
+#ifndef DEFAULTS_MACOS_H_
+#define DEFAULTS_MACOS_H_
 
 #include <string>
 
@@ -13,6 +13,6 @@ const int MAX_TAB = 5; // tabs opened threshold before warning is triggered
 const std::string PHAGE_LIST = "phage_list.txt";
 const std::string OTHER_LIST = "other_list.txt";
 
-int automateGCS(int max_phage, bool full_auto = false);
+int AutomateGCS(int max_phage, bool full_auto = false);
 
-#endif // GCS_PARSER_H_
+#endif // DEFAULTS_MACOS_H_

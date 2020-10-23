@@ -87,9 +87,10 @@ Contact Me: bryanjiang@ucla.edu
 Source code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
 ===========================================================================================================================*/
 
-#include "defaults.h"
+#include "defaults_windows.h"
 
 #include <iostream>
+#include <string>
 using namespace std;
 
 int main()
@@ -100,7 +101,7 @@ int main()
 
     string custom;
 
-    cout << "Welcome to Semi-Auto GCS Analysis Tool (v1.0)!\n\n"
+    cout << "Welcome to Auto GCS for Windows (v1.0)!\n\n"
         "Instructions and troubleshooting options are in the 'README.txt' file.\n"
         "Start the program by pressing ENTER or RETURN." << endl;
 
@@ -109,28 +110,28 @@ int main()
         getline(cin, custom);
 
         if (custom == "1")
-            return automateGCS(10);
+            return AutomateGCS(10);
         else if (custom == "2")
-            return automateGCS(20);
+            return AutomateGCS(20);
         else if (custom == "3")
-            return automateGCS(30);
+            return AutomateGCS(30);
         else if (custom == "5")
-            return automateGCS(50);
+            return AutomateGCS(50);
         else if (custom == "6")
-            return automateGCS(60);
+            return AutomateGCS(60);
         else if (custom == "7")
-            return automateGCS(70);
+            return AutomateGCS(70);
         else if (custom == "8")
-            return automateGCS(80);
+            return AutomateGCS(80);
         else if (custom == "9")
-            return automateGCS(90);
+            return AutomateGCS(90);
         else if (custom == "max")
-            return automateGCS(INT_MAX);
+            return AutomateGCS(INT_MAX);
         else if (custom == "auto")
-            return automateGCS(MAX_PHAGE, true);
+            return AutomateGCS(MAX_PHAGE, true);
         else if (custom == "auto max" || custom == "max auto")
-            return automateGCS(INT_MAX, true);
+            return AutomateGCS(INT_MAX, true);
         else
-            return automateGCS(MAX_PHAGE);
+            return AutomateGCS(MAX_PHAGE);
     }
 }

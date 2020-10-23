@@ -1,11 +1,11 @@
-#include "defaults.h"
+#include "defaults_windows.h"
 
 #include <iostream>
 #include <fstream>
 #include <sstream>
 using namespace std;
 
-int automateGCS(int max_phage, bool full_auto)
+int AutomateGCS(int max_phage, bool full_auto)
 {
     cout << "\nProcessing . . .\n" << endl;
 
