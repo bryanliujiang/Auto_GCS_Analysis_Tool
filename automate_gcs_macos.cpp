@@ -5,8 +5,29 @@
 #include <sstream>
 using namespace std;
 
-int AutomateGCS(int max_phage, bool full_auto)
+int AutomateGCS(int max_phage, bool full_auto, bool setup)
 {
+    if (setup)
+    {
+        cout << "\nSetting up . . .\n" << endl;
+
+        myfile.open("phage_list.txt");
+        myfile.close();
+        myfile.open("other_list.txt");
+        myfile.close();
+
+        cout << "\nInitial setup complete! The input files "
+            "'phage_list.txt' and 'other_list.txt' are now"
+            "available for modification in the program folder. "
+            "There is no longer need to run this setup process "
+            "in the future.\n\n"
+            "You may close the program or press ENTER or RETURN to exit." << endl;
+        cin.get();
+        cin.ignore();
+
+        return 2;
+    }
+    
     cout << "\nProcessing . . .\n" << endl;
 
     ifstream pha(PHAGE_LIST);

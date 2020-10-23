@@ -25,10 +25,15 @@ warnings will be given. It is the user's reponsibility to check memory usage to 
 The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt' and 'others_list.txt'). The 
 user should paste the shorter list of phages in 'phage_list.txt' and the longer list of phages in 'others_list.txt'. The 
 reason for this is that the program requires user input each time a new phage in 'phage_list.txt' is compared to all the
-phages in 'others_list.txt' (this can be overridden if the user inputs the keyword "auto" when the program opens).
-Additionally, a new tab in the browser will be opened for each phage in 'phage_list.txt'.
+phages in 'others_list.txt' (this can be overridden if the user inputs the keyword "auto" when the program opens). Note that 
+a new tab in the browser will be opened for each phage in 'phage_list.txt'.
 
-MAC USERS ONLY: The folder containing the program must be stored on the desktop to run correctly.
+Additionally, custom commands can be entered right after the program is launched. Refer to the 'CUSTOM SETTINGS' section 
+below for valid custom commands.
+
+MAC USERS ONLY: The first time the program runs, the user must enter in "setup" (without quotation marks) for proper 
+                initialization. This will create the 'phage_list.txt' and 'other_list.txt' files in the program folder for 
+                user modification.
 
 Below is a summary of the inputs and outputs.
 
@@ -54,11 +59,13 @@ Q: My tabs are not loading! I get a 504 Gateway Timeout error.
 A: This happened because PhagesDB was not able to process the URL request in time, mostly likely due to there being too many 
    phages being compared in one tab (by default, 40 comparisons are made per tab). Try to refresh the page. After two or 
    three tries if the tabs still do not load, you can change the default number of comparisons made per tab. Refer to the 
-   'CUSTOM SETTINGS' section of this 'README.txt' file on how to do this.
+   'CUSTOM SETTINGS' section below on how to do this.
 
 Q: I am getting the "Data failed to load!" error!
-A: If you are on MAC, this is most likely due to the folder containing this program not being on the desktop. Try moving the 
-   folder to the desktop and try again. If you are on Windows, try re-downloading the folder containing the program again.
+A: Make sure the 'phage_list.txt' and 'other_list.txt' files were not moved or renamed. If you are on Mac, make sure to 
+   enter the "setup" command the first time the program was opened. Refer to the 'CUSTOM SETTINGS' section below for other 
+   valid custom commands. If that does not work, try re-downloading the folder containing the program again. If you are on 
+   Windows, try re-downloading the folder containing the program again.
 
 Q: How can I make the program automatically make all the comparisons without my having to make manual inputs for each phage?
 A: Enter "auto" (without the quotation marks) when the program first opens. Refer to the 'CUSTOM SETTINGS' section below for 
@@ -90,6 +97,9 @@ The following are valid custom commands that the user can enter upon the program
 "auto max" or "max auto" : *EXPERIMENTAL* This combines the 'auto' and 'max' commands, essentially removing phage comparison 
                            and tab limits as well as bypassing the need for manual confirmation everytime a new phage in 
                            'phage_list.txt' is compared to
+
+"setup" : *MAC USERS ONLY* This will create the 'phage_list.txt' and 'other_list.txt' files in the program folder for 
+          user modification. Run this command only once when the program is first launched.
 =============================================================================================================================
 
 ========================================================= RESOURCES =========================================================
@@ -97,5 +107,3 @@ PhagesDB GCS Tool: https://phagesdb.org/genecontent/
 Contact Me: bryanjiang@ucla.edu
 Source code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
 =============================================================================================================================
-
-

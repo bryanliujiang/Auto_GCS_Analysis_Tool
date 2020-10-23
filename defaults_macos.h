@@ -13,6 +13,6 @@ const int MAX_TAB = 5; // tabs opened threshold before warning is triggered
 const std::string PHAGE_LIST = "phage_list.txt";
 const std::string OTHER_LIST = "other_list.txt";
 
-int AutomateGCS(int max_phage, bool full_auto = false);
+int AutomateGCS(int max_phage, bool full_auto = false, bool setup = false);
 
 #endif // DEFAULTS_MACOS_H_
