@@ -80,16 +80,17 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
     oth.clear();
     oth.seekg(0, ios::beg);
 
-    int count_phage_master = 0, // total number of phages in phage_list.txt
+    int count_other_total_report = 0, // total number of phages in other_list.txt
+        count_phage_master = 0, // total number of phages in phage_list.txt
         count_other_master = 0, // grand total number of comparisons made across all rounds
         count_other_total = 0, // total number of phages in other_list.txt successfully compared in one round
-        count_other_total_report = 0, // total number of phages in other_list.txt
-        count_other = 0, // tracks phages compared in one tab before overflowing to a new tab
         count_tab_master = 0, // grand total number of tabs opened across all rounds
-        count_tab_total = 0; // total number of tabs opened in one round
-    string phage_name;
-    string response = "y";
-    string url_phages;
+        count_tab_total = 0, // total number of tabs opened in one round
+        count_other = 0; // tracks phages compared in one tab before overflowing to a new tab
+
+    string phage_name, // primary phage that 'other_list.txt' phages will compare to
+           url_phages, // the 'other_list.txt' phages that will be compared to the primary phage
+           response; // stores user input responses
 
     while (getline(pha, line))
     {
@@ -107,7 +108,7 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
             if (count_other == max_phage)
             {
                 string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
-                system(std::string("start " + url_master).c_str());
+                system(string("start " + url_master).c_str());
                 ++count_tab_master;
                 ++count_tab_total;
                 url_phages.clear();
@@ -149,7 +150,7 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
         }
 
         string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
-        system(std::string("start " + url_master).c_str());
+        system(string("start " + url_master).c_str());
 
         ++count_tab_master;
         ++count_tab_total;
