@@ -56,7 +56,10 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
         istringstream iss_pha(line);
         string phage;
         iss_pha >> phage;
+        if (phage.empty())
+            continue;
         myfile << phage << "\t";
+
         ++num_phages;
     }
     myfile.close();
@@ -69,6 +72,8 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
         istringstream iss_oth(line);
         string phage;
         iss_oth >> phage;
+        if (phage.empty())
+            continue;
         myfile << phage << endl;
     }
     myfile.close();
@@ -91,6 +96,8 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
         istringstream iss_pha(line);
         string phage;
         iss_pha >> phage;
+        if (phage.empty())
+            continue;
         phage_name = phage;
 
         ++count_phage_master;
@@ -131,6 +138,8 @@ int AutomateGCS(int max_phage, bool full_auto, bool setup)
             istringstream iss_oth(line);
             string other;
             iss_oth >> other;
+            if (other.empty())
+                continue;
 
             url_phages = url_phages + ",%20" + other;
 
