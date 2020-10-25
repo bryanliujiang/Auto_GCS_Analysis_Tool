@@ -130,7 +130,7 @@ int AutomateGCS(int max_phage, bool full_auto, bool debug)
             if (count_other == max_phage)
             {
                 string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
-                system(string("start " + url_master).c_str());
+                system(string("open " + url_master).c_str());
                 ++count_tab_master;
                 ++count_tab_total;
                 url_phages.clear();
@@ -172,7 +172,7 @@ int AutomateGCS(int max_phage, bool full_auto, bool debug)
         }
 
         string url_master = "https://phagesdb.org/genecontent/compare/?phages=" + phage_name + url_phages;
-        system(string("start " + url_master).c_str());
+        system(string("open " + url_master).c_str());
 
         ++count_tab_master;
         ++count_tab_total;
