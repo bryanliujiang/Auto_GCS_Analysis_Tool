@@ -5,9 +5,12 @@ themselves.
 =============================================================================================================================
 
 ========================================================== CAUTION ==========================================================
-When conducting a large number of phage comparisons, a corresponding large number of tabs in your default browser will be 
-opened. A courtesy warning will be triggered if a comparison session exceeds five tabs opened. However, after that, no more 
+When conducting a large number of phage comparisons, a corresponding large number of tabs in your default browser will be
+opened. A courtesy warning will be triggered if a comparison session exceeds five tabs opened. However, after that, no more
 warnings will be given. It is the user's reponsibility to check memory usage to ensure nothing crashes.
+
+This program has only been tested on MacOS Versions '10.15' and '10.14'. However, it should run on versions as old as '10.7'.
+Be sure to email 'bryanjiang@ucla.edu' if there are any problems with the program on MacOS versions prior to '10.14'.
 =============================================================================================================================
 
 ======================================================== INSTRUCTIONS =======================================================
@@ -20,9 +23,8 @@ a new tab in the browser will be opened for each phage in 'phage_list.txt'.
 Additionally, custom commands can be entered right after the program is launched. Refer to the 'CUSTOM SETTINGS' section 
 below for valid custom commands.
 
-MAC USERS ONLY: The first time the program runs, the user must enter in "setup" (without quotation marks) for proper 
-                initialization. This will create the 'phage_list.txt' and 'other_list.txt' files in the program folder for 
-                user modification.
+*MAC USERS ONLY* : The program folder MUST be placed on the Desktop for the time being. If the program folder is not on the 
+                   Desktop, the program will fail to run.
 
 Below is a summary of the inputs and outputs.
 
@@ -51,10 +53,18 @@ A: This happened because PhagesDB was not able to process the URL request in tim
    'CUSTOM SETTINGS' section below on how to do this.
 
 Q: I am getting the "Data failed to load!" error!
-A: Make sure the 'phage_list.txt' and 'other_list.txt' files were not moved or renamed. If you are on Mac, make sure to 
-   enter the "setup" command the first time the program was opened. Refer to the 'CUSTOM SETTINGS' section below for other 
-   valid custom commands. If that does not work, try re-downloading the folder containing the program again. If you are on 
-   Windows, try re-downloading the folder containing the program again.
+A: Make sure the 'phage_list.txt' and 'other_list.txt' files were neither moved away from the program folder NOR renamed. If
+   this was the case, you can create new text files with the same respective names and place them into the program folder. 
+   If you are on Mac, be sure the program folder is on the Desktop with its original naming.
+
+Q: I am getting the "Error: OS version incompatibility!" error!
+A: If you are on Mac, report this error by emailing 'bryanjiang@ucla.edu' and include your MacOS version in the email. Your 
+   version can be found by clicking the Apple Inc. logo in the very top left corner and then clicking 'About This Mac'. If 
+   you are on Windows, you downloaded the MacOS version of the program. Make sure to download the Windows version.
+
+Q: I am getting the "Error: OS incompatibility!" error!
+A: If you are on Mac, report this error by emailing 'bryanjiang@ucla.edu'. If you are on Windows, you downloaded the MacOS
+   version of the program. Make sure to download the Windows version.
 
 Q: How can I make the program automatically make all the comparisons without my having to make manual inputs for each phage?
 A: Enter "auto" (without the quotation marks) when the program first opens. Refer to the 'CUSTOM SETTINGS' section below for 
@@ -86,9 +96,6 @@ The following are valid custom commands that the user can enter upon the program
 "auto max" or "max auto" : *EXPERIMENTAL* This combines the 'auto' and 'max' commands, essentially removing phage comparison 
                            and tab limits as well as bypassing the need for manual confirmation everytime a new phage in 
                            'phage_list.txt' is compared to
-
-"setup" : *MAC USERS ONLY* This will create the 'phage_list.txt' and 'other_list.txt' files in the program folder for 
-          user modification. Run this command only once when the program is first launched.
 =============================================================================================================================
 
 ========================================================= RESOURCES =========================================================
@@ -105,10 +112,12 @@ using namespace std;
 
 int main()
 {
+    // Return -3: Error: OS version incompatibility
+    // Return -2: Error: OS incompatibility
+    // Return -1: Error: file extraction failure
     // Return 0: Success: normal termination
     // Return 1: Success: early termination
-    // Return 2: Success: setup termination
-    // Return -1: Error
+    // Return 2: Success: debug termination
 
     string custom;
 
@@ -142,7 +151,7 @@ int main()
             return AutomateGCS(MAX_PHAGE, true);
         else if (custom == "auto max" || custom == "max auto")
             return AutomateGCS(INT_MAX, true);
-        else if (custom == "setup")
+        else if (custom == "debug")
             return AutomateGCS(MAX_PHAGE, false, true);
         else
             return AutomateGCS(MAX_PHAGE);

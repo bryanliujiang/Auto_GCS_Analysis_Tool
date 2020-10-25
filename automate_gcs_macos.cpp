@@ -3,34 +3,56 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <unistd.h>
 using namespace std;
 
-int AutomateGCS(int max_phage, bool full_auto, bool setup)
+int AutomateGCS(int max_phage, bool full_auto, bool debug)
 {
-    if (setup)
+    cout << "\nProcessing . . .\n" << endl;
+    
+    int MAXPATHLEN = 256;
+    char buffer[MAXPATHLEN];
+    string curPath;
+
+    char* path = getcwd(buffer, MAXPATHLEN);
+    if (!path)
     {
+        cerr << "Error: OS incompatibility!";
+        return -2;
+    }
+    else
+        curPath = path;
+   
+    if (debug)
+    {
+        cerr << "current path is: " << curPath << endl;
+
+        string newPath = curPath + "/Desktop/" + FOLDER_NAME; // tested for 10.15, 10.14
+        int rc = chdir(newPath.c_str());
+        if (rc < 0)
+        {
+            cerr << "Error: OS version incompatibility!";
+            return -3;
+        }
+
+        cerr << "new path is: " << newPath << endl;
+
         ofstream myfile;
-
-        cout << "\nSetting up . . .\n" << endl;
-
-        myfile.open("phage_list.txt");
-        myfile.close();
-        myfile.open("other_list.txt");
+        myfile.open("test.txt");
         myfile.close();
 
-        cout << "\nInitial setup complete! The input files "
-            "'phage_list.txt' and 'other_list.txt' are now"
-            "available for modification in the program folder. "
-            "There is no longer need to run this setup process "
-            "in the future.\n\n"
-            "You may close the program or press ENTER or RETURN to exit." << endl;
-        cin.get();
-        cin.ignore();
+        cerr << "done\n";
 
         return 2;
     }
-    
-    cout << "\nProcessing . . .\n" << endl;
+
+    string newPath = curPath + "/Desktop/" + FOLDER_NAME; // relies on the program folder being on the Deskop
+    int rc = chdir(newPath.c_str());
+    if (rc < 0)
+    {
+        cerr << "Error: OS version incompatibility!";
+        return -3;
+    }
 
     ifstream pha(PHAGE_LIST);
     if (!pha)
