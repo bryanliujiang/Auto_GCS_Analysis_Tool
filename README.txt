@@ -47,11 +47,11 @@ INPUTS (what the user will modify):
 	SHORTER list of phages here
 
 OUTPUTS:
-'horizontal.txt': contains the phage names from 'phage_list.txt', separated by tabs to be immediately copy-and-paste-able to
-	Excel as the horizontal row for heatmap formatting.
+'horizontal.txt': contains the phage names from 'other_list.txt', separated by tabs to be immediately copy-and-paste-able to
+	Excel as the horizontal row for heatmap/table formatting.
 
-'vertical.txt': contains the phage names from 'other_list.txt', each on a new line to be immediately copy-and-paste-able to
-	Excel as the vertical row for heatmap formatting.
+'vertical.txt': contains the phage names from 'phage_list.txt', each on a new line to be immediately copy-and-paste-able to
+	Excel as the vertical row for heatmap/table formatting.
 
 In addition to these output files, tabs will open in the user's default browser with the GCS score outputs on PhagesDB.
 =============================================================================================================================

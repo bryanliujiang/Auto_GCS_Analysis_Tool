@@ -72,6 +72,20 @@ int AutomateGCS(int max_phage, bool full_auto, bool debug)
     string line;
 
     myfile.open("horizontal.txt");
+    while (getline(oth, line))
+    {
+        istringstream iss_oth(line);
+        string phage;
+        iss_oth >> phage;
+        if (phage.empty())
+            continue;
+        myfile << phage << "\t";
+    }
+    myfile.close();
+    oth.clear();
+    oth.seekg(0, ios::beg);
+
+    myfile.open("vertical.txt");
     int num_phages = 0;
     while (getline(pha, line))
     {
@@ -80,27 +94,13 @@ int AutomateGCS(int max_phage, bool full_auto, bool debug)
         iss_pha >> phage;
         if (phage.empty())
             continue;
-        myfile << phage << "\t";
+        myfile << phage << endl;
 
         ++num_phages;
     }
     myfile.close();
     pha.clear();
     pha.seekg(0, ios::beg);
-
-    myfile.open("vertical.txt");
-    while (getline(oth, line))
-    {
-        istringstream iss_oth(line);
-        string phage;
-        iss_oth >> phage;
-        if (phage.empty())
-            continue;
-        myfile << phage << endl;
-    }
-    myfile.close();
-    oth.clear();
-    oth.seekg(0, ios::beg);
 
     int count_other_total_report = 0, // total number of phages in other_list.txt
         count_phage_master = 0, // total number of phages in phage_list.txt
