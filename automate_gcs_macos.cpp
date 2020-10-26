@@ -27,7 +27,7 @@ int AutomateGCS(int max_phage, bool full_auto, bool debug)
     {
         cerr << "current path is: " << curPath << endl;
 
-        string newPath = curPath + "/Desktop/" + FOLDER_NAME; // tested for 10.15, 10.14
+        string newPath = curPath + "/Desktop/" + FOLDER_NAME; // tested for 10.15, 10.14, 10.13
         int rc = chdir(newPath.c_str());
         if (rc < 0)
         {

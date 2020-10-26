@@ -1,7 +1,7 @@
 /*======================================================== WELCOME ==========================================================
 This tool was designed to supplement the GCS analysis process. It will help alleviate the manual work required to conduct 
-mass comparisons. However, at this time, the user will still have to manually extract the GCS output numbers on PhagesDB 
-themselves.
+mass comparisons using the 'Explore Gene Content' forms on PhagesDB.org (https://phagesdb.org/genecontent/). However, at 
+this time, the user will still have to manually extract the GCS output numbers on PhagesDB.org themselves.
 =============================================================================================================================
 
 ========================================================== CAUTION ==========================================================
@@ -9,8 +9,9 @@ When conducting a large number of phage comparisons, a corresponding large numbe
 opened. A courtesy warning will be triggered if a comparison session exceeds five tabs opened. However, after that, no more 
 warnings will be given. It is the user's reponsibility to check memory usage to ensure nothing crashes.
 
-This program has only been tested on MacOS Versions '10.15' and '10.14'. However, it should run on versions as old as '10.7'.
-Be sure to email 'bryanjiang@ucla.edu' if there are any problems with the program on MacOS versions prior to '10.14'.
+This program has only been tested on MacOS versions '10.15', '10.14' and '10.13'. However, it should run on versions as old 
+as '10.7'. Be sure to email 'bryanjiang@ucla.edu' if there are any problems with the program on MacOS versions prior to 
+'10.13'.
 =============================================================================================================================
 
 ======================================================== INSTRUCTIONS =======================================================
@@ -23,8 +24,8 @@ a new tab in the browser will be opened for each phage in 'phage_list.txt'.
 Additionally, custom commands can be entered right after the program is launched. Refer to the 'CUSTOM SETTINGS' section 
 below for valid custom commands.
 
-*MAC USERS ONLY* : The program folder MUST be placed on the Desktop for the time being. If the program folder is not on the 
-                   Desktop, the program will fail to run.
+*MAC USERS ONLY* : For the time being, the program folder MUST be placed on the Desktop and CANNOT be renamed. If the 
+                   program folder is not on the Desktop and/or is renamed, the program will fail to run.
 
 Below is a summary of the inputs and outputs.
 
@@ -37,10 +38,10 @@ INPUTS (what the user will modify):
 
 OUTPUTS:
 'horizontal.txt': contains the phage names from 'other_list.txt', separated by tabs to be immediately copy-and-paste-able to
-	Excel as the horizontal row for heatmap/table formatting.
+	Excel as the horizontal row for heatmap/table formatting
 
 'vertical.txt': contains the phage names from 'phage_list.txt', each on a new line to be immediately copy-and-paste-able to
-	Excel as the vertical row for heatmap/table formatting.
+	Excel as the vertical row for heatmap/table formatting
 
 In addition to these output files, tabs will open in the user's default browser with the GCS score outputs on PhagesDB.
 =============================================================================================================================
@@ -53,18 +54,18 @@ A: This happened because PhagesDB was not able to process the URL request in tim
    'CUSTOM SETTINGS' section below on how to do this.
 
 Q: I am getting the "Data failed to load!" error!
-A: Make sure the 'phage_list.txt' and 'other_list.txt' files were neither moved away from the program folder NOR renamed. If
+A: Be sure the 'phage_list.txt' and 'other_list.txt' files were neither moved away from the program folder NOR renamed. If
    this was the case, you can create new text files with the same respective names and place them into the program folder. 
    If you are on Mac, be sure the program folder is on the Desktop with its original naming.
 
 Q: I am getting the "Error: OS version incompatibility!" error!
 A: If you are on Mac, report this error by emailing 'bryanjiang@ucla.edu' and include your MacOS version in the email. Your 
    version can be found by clicking the Apple Inc. logo in the very top left corner and then clicking 'About This Mac'. If 
-   you are on Windows, you downloaded the MacOS version of the program. Make sure to download the Windows version.
+   you are on Windows, you downloaded the MacOS version of the program. Be sure to download the Windows version.
 
 Q: I am getting the "Error: OS incompatibility!" error!
 A: If you are on Mac, report this error by emailing 'bryanjiang@ucla.edu'. If you are on Windows, you downloaded the MacOS
-   version of the program. Make sure to download the Windows version.
+   version of the program. Be sure to download the Windows version.
 
 Q: How can I make the program automatically make all the comparisons without my having to make manual inputs for each phage?
 A: Enter "auto" (without the quotation marks) when the program first opens. Refer to the 'CUSTOM SETTINGS' section below for 
@@ -77,31 +78,31 @@ A: Email me at 'bryanjiang@ucla.edu'.
 ====================================================== CUSTOM SETTINGS ======================================================
 The following are valid custom commands that the user can enter upon the program opening. Ignore the quotation marks.
 
-[Pressing ENTER or RETURN key] : This runs the tool with default settings.
+[Pressing ENTER or RETURN key] : runs the tool with default settings
 
-"auto" : This will bypass the manual confirmation required everytime a new phage in 'phage_list.txt' is compared to. This 
-         will also bypass the warning given when more than five tabs will be opened.
+"auto" : bypasses the manual confirmation required everytime a new phage in 'phage_list.txt' is compared to; also bypasses 
+         the warning given when more than five tabs will be opened
 
-"1" : This will set the number of phage comparisons per tab to 10 (default is 40).
+"1" : sets the number of phage comparisons per tab to 10 (default is 40)
 
-"2" : This will set the number of phage comparisons per tab to 20 (default is 40).
+"2" : sets the number of phage comparisons per tab to 20 (default is 40)
 
-"3" : This will set the number of phage comparisons per tab to 30 (default is 40).
+"3" : sets the number of phage comparisons per tab to 30 (default is 40)
 
-"5" : This will set the number of phage comparisons per tab to 50, exceeding the default (default is 40).
+"5" : sets the number of phage comparisons per tab to 50, exceeding the default (default is 40)
 
-"max" : *EXPERIMENTAL* This will remove any limit to the number of phage comparisons per tab. A new tab will still be opened 
-        for each phage in 'phage_list.txt', however.
+"max" : *EXPERIMENTAL* removes any limit to the number of phage comparisons per tab; however, a new tab will still be opened 
+        for each phage in 'phage_list.txt'
 
-"auto max" or "max auto" : *EXPERIMENTAL* This combines the 'auto' and 'max' commands, essentially removing phage comparison 
+"auto max" or "max auto" : *EXPERIMENTAL* combines the 'auto' and 'max' commands, essentially removing phage comparison 
                            and tab limits as well as bypassing the need for manual confirmation everytime a new phage in 
                            'phage_list.txt' is compared to
 =============================================================================================================================
 
 ========================================================= RESOURCES =========================================================
-PhagesDB GCS Tool: https://phagesdb.org/genecontent/
-Contact Me: bryanjiang@ucla.edu
-Source code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
+PhagesDB.org GCS Tool: https://phagesdb.org/genecontent/
+Contact Me: email bryanjiang@ucla.edu
+Source Code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
 ===========================================================================================================================*/
 
 #include "defaults_windows.h"
