@@ -117,7 +117,7 @@ quotation marks.
 ============================================= RESOURCES =============================================
 PhagesDB.org GCS Tool: https://phagesdb.org/genecontent/
 Contact Me: email bryanjiang@ucla.edu
-Source Code (any suggestions welcome!): https://github.com/bryanliujiang/Semi-Auto_GCS_Analysis_Tool
+Source Code (any suggestions welcome!): https://github.com/bryanliujiang/Auto_GCS_Analysis_Tool
 ===================================================================================================*/
 
 #include "defaults_macos.h"
