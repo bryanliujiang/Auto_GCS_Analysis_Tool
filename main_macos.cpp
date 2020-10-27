@@ -12,8 +12,8 @@ extract the GCS output numbers on PhagesDB.org themselves. Tested on Windows and
 ============================================== CAUTION ==============================================
 When conducting a large number of phage comparisons, a corresponding large number of tabs in your 
 default browser will be opened. A courtesy warning will be triggered if a comparison session exceeds 
-five tabs opened. However, after that, no more warnings will be given. It is the user's reponsibility 
-to check memory usage to ensure nothing crashes.
+five tabs opened. However, after that, no more warnings will be given. It is the user's 
+responsibility to check memory usage to ensure nothing crashes.
 
 This program has only been tested on MacOS versions '10.15', '10.14' and '10.13'. However, it should 
 run on versions as old as '10.7'. Be sure to email 'bryanjiang@ucla.edu' if there are any problems 
@@ -21,13 +21,13 @@ with the program on MacOS versions prior to '10.13'.
 =====================================================================================================
 
 ============================================ INSTRUCTIONS ===========================================
-The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt'
-and 'other_list.txt'). The user should paste the shorter list of phages in 'phage_list.txt' and the
-longer list of phages in 'other_list.txt'. The reason for this is that a new tab in the browser will
+The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt' 
+and 'other_list.txt'). The user should paste the shorter list of phages in 'phage_list.txt' and the 
+longer list of phages in 'other_list.txt'. The reason for this is that a new tab in the browser will 
 be opened for each phage in 'phage_list.txt'. After this, launch the program.
 
-Note that the program requires user input each time a new phage in 'phage_list.txt' is compared to
-all the phages in 'other_list.txt' (however, this can be overridden if the user inputs the keyword
+Note that the program requires user input each time a new phage in 'phage_list.txt' is compared to 
+all the phages in 'other_list.txt' (however, this can be overridden if the user inputs the keyword 
 "auto" when the program opens).
 
 Additionally, custom commands can be entered right after the program is launched. Refer to the 
@@ -96,7 +96,7 @@ quotation marks.
 
 [Pressing ENTER or RETURN key] : runs the tool with default settings
 
-"auto" : bypasses the manual confirmation required everytime a new phage in 'phage_list.txt' is 
+"auto" : bypasses the manual confirmation required every time a new phage in 'phage_list.txt' is 
          compared to; also bypasses the warning given when more than five tabs will be opened
 
 "1" : sets the number of phage comparisons per tab to 10 (default is 40)
@@ -112,8 +112,8 @@ quotation marks.
 
 "auto max" or "max auto" : *EXPERIMENTAL* combines the 'auto' and 'max' commands, essentially 
                                           removing phage comparison and tab limits as well as 
-                                          bypassing the need for manual confirmation everytime a new 
-                                          phage in 'phage_list.txt' is compared to
+                                          bypassing the need for manual confirmation every time 
+                                          a new phage in 'phage_list.txt' is compared to
 =====================================================================================================
 
 ============================================= RESOURCES =============================================
