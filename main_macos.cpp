@@ -21,12 +21,14 @@ with the program on MacOS versions prior to '10.13'.
 =====================================================================================================
 
 ============================================ INSTRUCTIONS ===========================================
-The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt' 
-and 'other_list.txt'). The user should paste the shorter list of phages in 'phage_list.txt' and the 
-longer list of phages in 'other_list.txt'. The reason for this is that the program requires user 
-input each time a new phage in 'phage_list.txt' is compared to all the phages in 'other_list.txt' 
-(this can be overridden if the user inputs the keyword "auto" when the program opens). Note that a 
-new tab in the browser will be opened for each phage in 'phage_list.txt'.
+The only steps the user is responsible for is modifying TWO provided text files ('phage_list.txt'
+and 'other_list.txt'). The user should paste the shorter list of phages in 'phage_list.txt' and the
+longer list of phages in 'other_list.txt'. The reason for this is that a new tab in the browser will
+be opened for each phage in 'phage_list.txt'. After this, launch the program.
+
+Note that the program requires user input each time a new phage in 'phage_list.txt' is compared to
+all the phages in 'other_list.txt' (however, this can be overridden if the user inputs the keyword
+"auto" when the program opens).
 
 Additionally, custom commands can be entered right after the program is launched. Refer to the 
 'CUSTOM SETTINGS' section below for valid custom commands.
